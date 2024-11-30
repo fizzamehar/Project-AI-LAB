@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Detector</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c3e50; /* Dark slate background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ecf0f1; /* Light text for contrast */
+        }
+
+        /* Main Container */
+        .container {
+            width: 50%;
+            max-width: 600px;
+            background: linear-gradient(145deg, #34495e, #3b5366); /* Slightly lighter gradient */
+            padding: 40px;
+            border-radius: 20px; /* Smooth corners */
+            border: 1px solid #475766; /* Dark border for subtle separation */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+            text-align: center;
+        }
+
+        /* Heading */
+        h1 {
+            margin-bottom: 25px;
+            color: #ecf0f1; /* Light text for visibility */
+            font-weight: 700; /* Bold for emphasis */
+            font-size: 2rem; /* Larger heading size for impact */
+        }
+
+        /* Textarea */
+        textarea {
+            width: 90%;
+            height: 120px;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #607d8b; /* Soft, dark gray-blue border */
+            border-radius: 10px;
+            background-color: #2c3e50; /* Matches dark theme */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5); /* Inner shadow for depth */
+            font-size: 1rem;
+            color: #ecf0f1; /* Light text */
+            resize: none; /* Prevent resizing */
+        }
+
+        /* Button Styling */
+        button {
+            background: linear-gradient(145deg, #3498db, #2980b9); /* Professional blue gradient */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px; /* Fully rounded button */
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #f3f6f9; /* Light hover effect */
+            color: #2c3e50; /* Matches the dark theme */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+        }
+
+        /* Result Section */
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #475766; /* Matches dark theme but slightly lighter */
+            color: #ecf0f1; /* Light text */
+            font-size: 1rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Detector</h1>
+        <form action="/detect" method="post">
+            <textarea name="input_text" placeholder="Enter the text here..." required></textarea>
+            <button type="submit">Check for Plagiarism</button>
+        </form>
+
+        <!-- Conditional Rendering of Result -->
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
